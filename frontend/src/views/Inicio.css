@@ -1,0 +1,40 @@
+.inicio__intro {
+  color: var(--texto-suave);
+}
+
+.inicio__vistas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.inicio__vista {
+  padding: 20px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--superficie);
+  color: var(--texto);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.inicio__vista:hover {
+  border-color: var(--primario);
+  transform: translateY(-2px);
+}
+
+.inicio__vista h2 {
+  margin: 0 0 8px;
+  color: var(--primario);
+}
+
+.inicio__vista p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.inicio__ok {
+  color: var(--exito);
+  font-weight: 600;
+}

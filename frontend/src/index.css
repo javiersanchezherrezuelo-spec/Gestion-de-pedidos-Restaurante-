@@ -1,0 +1,87 @@
+/* Variables de diseño compartidas por todos los componentes. */
+:root {
+  --fondo: #f5f6f8;
+  --superficie: #ffffff;
+  --borde: #e2e5ea;
+  --texto: #1f2328;
+  --texto-suave: #5b6470;
+  --primario: #c2410c;
+  --sobre-primario: #ffffff;
+  --exito: #15803d;
+  --error-fondo: #fef2f2;
+  --error-borde: #fecaca;
+  --error-texto: #991b1b;
+  --radio: 10px;
+
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #14161a;
+    --superficie: #1d2026;
+    --borde: #30353d;
+    --texto: #e8eaed;
+    --texto-suave: #a0a7b2;
+    --primario: #fb923c;
+    --sobre-primario: #1a1205;
+    --exito: #4ade80;
+    --error-fondo: #2a1414;
+    --error-borde: #6b2020;
+    --error-texto: #fca5a5;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--fondo);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+}
+
+a {
+  color: var(--primario);
+}
+
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Botones reutilizables: <button className="boton"> o "boton boton--secundario". */
+.boton {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  background: var(--primario);
+  color: var(--sobre-primario);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.boton--secundario {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}

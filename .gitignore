@@ -1,0 +1,13 @@
+# Backend
+target/
+*.iml
+.env
+
+# Frontend
+node_modules/
+dist/
+
+# Editores y sistema
+.idea/
+.vscode/
+.DS_Store

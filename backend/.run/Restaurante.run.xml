@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Restaurante" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="gestion-pedidos" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.hackaboss.gestionpedidos.GestionDePedidosApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

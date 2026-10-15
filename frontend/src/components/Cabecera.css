@@ -1,0 +1,39 @@
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 12px 16px;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);
+}
+
+.cabecera__marca {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.cabecera__nav {
+  display: flex;
+  gap: 4px;
+}
+
+.cabecera__enlace {
+  padding: 6px 12px;
+  border-radius: var(--radio);
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cabecera__enlace:hover {
+  background: var(--fondo);
+}
+
+.cabecera__enlace.active {
+  background: var(--primario);
+  color: var(--sobre-primario);
+}
