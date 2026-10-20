@@ -1,18 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
 
-/**
- * Carga datos de la API y gestiona los estados de carga y error.
- *
- *   const { datos, cargando, error, recargar } = useConsulta(() => listarTerminales(), [])
- *
- * @param {() => Promise<any>} funcion  función que llama a la API (las de src/api)
- * @param {Array} dependencias  cuando cambia alguna, se vuelve a pedir (como en useEffect)
- * @param {{intervalo?: number}} opciones  si se indica, se vuelve a pedir cada "intervalo" ms
- * @returns {{datos: any, cargando: boolean, error: Error|null, recargar: () => void}}
- *
- * - "cargando" solo es true en la primera carga, para que el refresco automático no haga parpadear la vista.
- * - Si la vista se desmonta o cambian las dependencias, se ignoran las respuestas que lleguen tarde.
- */
+// Carga datos de la API y gestiona los estados de carga y error.
+//   const { datos, cargando, error, recargar } = useConsulta(() => listarTerminales(), [])
+// - Vuelve a pedir los datos cuando cambia algo de "dependencias" o al llamar a recargar().
+// - Con { intervalo: 5000 } los vuelve a pedir solo cada 5 segundos.
 export default function useConsulta(funcion, dependencias = [], { intervalo } = {}) {
   const [datos, setDatos] = useState(null)
   const [cargando, setCargando] = useState(true)
@@ -46,7 +37,6 @@ export default function useConsulta(funcion, dependencias = [], { intervalo } = 
       activo = false
       if (temporizador) clearInterval(temporizador)
     }
-    // "funcion" se crea en cada render, por eso se depende de "dependencias" y no de ella.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...dependencias, version, intervalo])
 

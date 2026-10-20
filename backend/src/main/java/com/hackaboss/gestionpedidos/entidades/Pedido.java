@@ -11,9 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-// Pedido hecho desde una terminal. Avanza por los estados de EstadoPedido
-// (CREADO -> EN_PREPARACION -> LISTO -> ENTREGADO -> FINALIZADO) y solo admite
-// cambios de productos mientras está en CREADO (ver PedidoProductoService).
+// (CREADO -> EN_PREPARACION -> LISTO -> ENTREGADO -> FINALIZADO)
 @Entity
 @Getter
 @Setter
@@ -25,7 +23,7 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	// Código corto que ve el cliente en la pantalla de recogida (por ejemplo "A123").
+	// Código corto que ve el cliente en la pantalla de recogida
 	@Column(unique = true)
 	private String codigo;
 	

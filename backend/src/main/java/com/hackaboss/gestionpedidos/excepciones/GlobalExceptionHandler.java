@@ -16,8 +16,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 // Convierte cualquier excepción en una respuesta ApiRespuesta con correcta = false
-// y el código HTTP adecuado (400, 404, 409 o 500). El frontend muestra el "mensaje";
-// en errores de validación, "dato" trae un mapa { campo: mensaje }.
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

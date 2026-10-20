@@ -1,11 +1,9 @@
 import './comunes.css'
 
-/**
- * Muestra un error de la API (ApiError de src/api/cliente.js) o cualquier Error.
- * - error.message: el "mensaje" que envía el backend.
- * - error.detalles: en errores de validación, objeto { campo: mensaje } que se lista debajo.
- * - onReintentar (opcional): muestra un botón para volver a intentarlo.
- */
+// Muestra un error de la API (ApiError de src/api/cliente.js) o cualquier Error.
+// - error.message: el "mensaje" que envía el backend.
+// - error.detalles: en errores de validación, objeto { campo: mensaje } que se lista debajo.
+// - onReintentar (opcional): muestra un botón para volver a intentarlo.
 export default function MensajeError({ error, onReintentar }) {
   if (!error) return null
 

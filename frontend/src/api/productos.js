@@ -3,10 +3,7 @@ import { pedirApi } from './cliente'
 // Productos de la carta.
 // ProductoDTO: { id, nombre, precio, urlFoto, activo, categoriaId, categoria }
 
-/**
- * GET /api/productos con filtros opcionales. El filtrado y la ordenación los hace el backend.
- * @param {{activos?: boolean, categoria?: number, ordenacion?: 'nombre'|'precio'|'categoria', tipoOrden?: 'ASC'|'DESC'}} filtros
- */
+// GET /api/productos con filtros opcionales. El filtrado y la ordenación los hace el backend.
 export function listarProductos({ activos, categoria, ordenacion, tipoOrden } = {}) {
   const parametros = new URLSearchParams()
   if (activos !== undefined) parametros.set('activos', activos)
@@ -17,7 +14,7 @@ export function listarProductos({ activos, categoria, ordenacion, tipoOrden } = 
   return pedirApi(`/productos${consulta ? `?${consulta}` : ''}`)
 }
 
-/** GET /api/productos/{id} */
+// GET /api/productos/{id}
 export function obtenerProducto(id) {
   return pedirApi(`/productos/${id}`)
 }

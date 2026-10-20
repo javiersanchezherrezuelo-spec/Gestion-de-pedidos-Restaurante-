@@ -5,7 +5,6 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 
-// Envoltorio común de todas las respuestas de la API: { correcta, mensaje, dato, timestamp }.
 @Getter
 @Setter
 public class ApiRespuesta<T> {

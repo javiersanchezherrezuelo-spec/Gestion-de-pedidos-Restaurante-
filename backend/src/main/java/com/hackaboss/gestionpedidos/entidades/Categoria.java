@@ -10,9 +10,8 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
 
-// Agrupa los productos de la carta (por ejemplo "Comida" o "Bebida").
-// No usamos @Data: en entidades con relaciones en los dos sentidos, su toString/equals/hashCode
-// se llaman entre sí (Categoria -> Producto -> Categoria...) y acaban en StackOverflowError.
+// Agrupa los productos de la carta
+// se llaman entre sí (Categoria -> Producto -> Categoria...)
 @Entity
 @Getter
 @Setter

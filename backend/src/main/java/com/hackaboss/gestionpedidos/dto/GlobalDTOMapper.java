@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GlobalDTOMapper {
 	
-	// Conversion de CATEGORIA
+	// Conversion de categoria
 	public static CategoriaDTO categoriaToCategoriaDTO(Categoria categoria) {
 		CategoriaDTO categoriaDTO = new CategoriaDTO();
 		
@@ -31,7 +31,7 @@ public class GlobalDTOMapper {
 		return categoria;
 	}
 	
-	// Conversion de PRODUCTO
+	// Conversion de producto
 	public static ProductoDTO productoToProductoDTO(Producto producto) {
 		ProductoDTO productoDTO = new ProductoDTO();
 		
@@ -60,7 +60,7 @@ public class GlobalDTOMapper {
 		return producto;
 	}
 	
-	// Conversion de TERMINAL
+	// Conversion de terminal
 	public static TerminalDTO terminalToTerminalDTO(Terminal terminal) {
 		
 		TerminalDTO dto = new TerminalDTO();
@@ -75,7 +75,7 @@ public class GlobalDTOMapper {
 		return dto;
 	}
 	
-	// Conversion de PEDIDOS
+	// Conversion de pedidos
 	public static PedidoDTO pedidoToPedidoDTO(Pedido pedido) {
 		
 		PedidoDTO dto = new PedidoDTO();
