@@ -1,0 +1,41 @@
+
+.resumen-pedido {
+    padding: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.resumen-pedido h2 {
+    margin-top: 0;
+}
+
+.resumen-pedido__lista {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.resumen-pedido__producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.resumen-pedido__producto p {
+    margin-bottom: 0;
+}
+
+.resumen-pedido__total {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.resumen-pedido > button {
+    width: 100%;
+}

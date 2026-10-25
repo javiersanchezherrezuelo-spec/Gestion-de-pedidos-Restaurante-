@@ -1,0 +1,84 @@
+.vista-terminal {
+    display: grid;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.vista-terminal__cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.vista-terminal__cabecera h1 {
+    margin-bottom: 8px;
+}
+
+.vista-terminal__carta {
+    display: grid;
+    gap: 16px;
+}
+
+.vista-terminal__productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+
+.vista-terminal__aviso {
+    padding: 16px;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+
+.vista-terminal__confirmacion {
+    padding: 24px;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.vista-terminal__codigo {
+    display: block;
+    margin: 16px 0;
+    font-size: clamp(2rem, 6vw, 3rem);
+    overflow-wrap: anywhere;
+}
+
+.filtro-categorias {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filtro-categorias select {
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .vista-terminal {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .vista-terminal__cabecera {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .vista-terminal__productos {
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+    }
+
+    .filtro-categorias select {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
