@@ -2,9 +2,10 @@
 .tarjeta-producto {
     min-width: 0;
     overflow: hidden;
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--borde);
     border-radius: 12px;
-    background: #fff;
+    background: var(--superficie);
+    color: var(--texto);
 }
 
 .tarjeta-producto__imagen {
@@ -29,6 +30,7 @@
 .tarjeta-producto__precio {
     margin: 0;
     font-weight: 700;
+    color: var(--texto);
 }
 
 .tarjeta-producto__contenido button {

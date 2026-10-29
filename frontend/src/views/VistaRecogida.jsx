@@ -1,17 +1,23 @@
-import EnConstruccion from '../components/EnConstruccion'
+import { listarPedidos } from '../api/pedidos'
+import { ESTADO_RECOGIDA, INTERVALO_REFRESCO_MS } from '../config/estados'
+import useConsulta from '../hooks/useConsulta'
+import Cargando from '../components/Cargando'
+import MensajeError from '../components/MensajeError'
+import EstadoVacio from '../components/EstadoVacio'
+import './VistaRecogida.css'
 
-// Vista /recogida — LA HACE RAFA (bloque 3).
-//
-// Qué tiene que hacer:
-// - listarPedidos(ESTADO_RECOGIDA) con refresco cada INTERVALO_REFRESCO_MS (src/config/estados.js).
-// - Mostrar SOLO el código de cada pedido, en grande, en el orden que llega del backend
-//   (ya viene ordenado por fecha de creación).
 export default function VistaRecogida() {
+  const { datos, cargando, error, recargar } = useConsulta(
+    () => listarPedidos(ESTADO_RECOGIDA), [], { intervalo: INTERVALO_REFRESCO_MS },
+  )
+  // El backend devuelve los pedidos ordenados por fecha de creación ascendente.
   return (
-    <EnConstruccion
-      titulo="Pedidos listos para recoger"
-      responsable="Rafa"
-      tareas={['Códigos de los pedidos LISTO, en grande', 'Refresco automático cada 5 s']}
-    />
+    <section className="vista-recogida">
+      <h1>Pedidos listos para recoger</h1>
+      <p>Actualización automática cada 5 segundos.</p>
+      <MensajeError error={error} onReintentar={recargar} />
+      {cargando && <Cargando texto="Cargando pedidos…" />}
+      {!cargando && !error && (datos?.length ? <ul className="vista-recogida__codigos" aria-label="Códigos listos para recoger" aria-live="polite">{datos.map((pedido) => <li key={pedido.id}>{pedido.codigo}</li>)}</ul> : <EstadoVacio titulo="No hay pedidos listos para recoger" />)}
+    </section>
   )
 }

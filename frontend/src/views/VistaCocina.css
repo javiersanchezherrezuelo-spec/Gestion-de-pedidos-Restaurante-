@@ -1,0 +1,3 @@
+.vista-cocina { min-width: 0; }
+.vista-cocina__columnas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .vista-cocina__columnas { grid-template-columns: minmax(0, 1fr); } }

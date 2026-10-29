@@ -53,3 +53,8 @@ La vista Terminal permite al cliente seleccionar una terminal del restaurante y 
 Los errores devueltos por la API se muestran en pantalla. Durante las peticiones, los botones relacionados con las acciones se deshabilitan para evitar operaciones simultáneas.
 
 La vista utiliza la capa API y los componentes compartidos del proyecto sin modificarlos.
+
+## Documentación completa
+
+- [Backend](backend/README.md)
+- [Frontend, Cocina y Recogida](frontend/README.md)

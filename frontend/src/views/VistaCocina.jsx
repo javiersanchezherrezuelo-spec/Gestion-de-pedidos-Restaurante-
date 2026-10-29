@@ -1,26 +1,29 @@
-import EnConstruccion from '../components/EnConstruccion'
+import { listarPedidos } from '../api/pedidos'
+import { ESTADOS_COCINA, INTERVALO_REFRESCO_MS } from '../config/estados'
+import useConsulta from '../hooks/useConsulta'
+import Cargando from '../components/Cargando'
+import MensajeError from '../components/MensajeError'
+import ColumnaPedidos from '../components/ColumnaPedidos'
+import './VistaCocina.css'
 
-// Vista /cocina — LA HACE RAFA (bloque 3).
-//
-// Qué tiene que hacer:
-// - Una columna por cada estado de ESTADOS_COCINA (src/config/estados.js).
-// - Cargar los pedidos de cada estado con listarPedidos(estado), refrescando cada
-//   INTERVALO_REFRESCO_MS con useConsulta(..., [], { intervalo: INTERVALO_REFRESCO_MS }).
-// - Cada tarjeta: código, terminal, hora (fechaCreacionTimestamp) y "cantidad × productoNombre".
-// - Botón con infoEstado(estado).accion que llama a cambiarEstado(id, infoEstado(estado).siguiente)
-//   y después recargar().
-// - En CREADO, ocultar los pedidos sin productos (items vacío).
-// Componentes previstos: TarjetaPedido, ColumnaPedidos (en src/components).
 export default function VistaCocina() {
+  const { datos, cargando, error, recargar } = useConsulta(
+    () => Promise.all(ESTADOS_COCINA.map((estado) => listarPedidos(estado))),
+    [], { intervalo: INTERVALO_REFRESCO_MS },
+  )
+
   return (
-    <EnConstruccion
-      titulo="Cocina"
-      responsable="Rafa"
-      tareas={[
-        'Columnas Creado, En preparación y Listos',
-        'Botón para pasar al estado siguiente',
-        'Refresco automático cada 5 s',
-      ]}
-    />
+    <section className="vista-cocina">
+      <h1>Cocina</h1>
+      <p>Actualización automática cada 5 segundos.</p>
+      <MensajeError error={error} onReintentar={recargar} />
+      {cargando && <Cargando texto="Cargando pedidos…" />}
+      {datos && <>
+        {error && <p role="status">Los pedidos mostrados pueden estar desactualizados.</p>}
+        <div className="vista-cocina__columnas">
+          {ESTADOS_COCINA.map((estado, indice) => <ColumnaPedidos key={estado} estado={estado} pedidos={(datos[indice] ?? []).filter((pedido) => estado !== 'CREADO' || pedido.items?.length > 0)} onActualizado={recargar} deshabilitado={Boolean(error)} />)}
+        </div>
+      </>}
+    </section>
   )
 }

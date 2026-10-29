@@ -1,0 +1,5 @@
+.tarjeta-pedido { min-width: 0; padding: 16px; border: 1px solid var(--borde); border-radius: var(--radio); background: var(--superficie); overflow-wrap: anywhere; }
+.tarjeta-pedido h3 { margin: 0; font-size: 1.6rem; }
+.tarjeta-pedido p { margin: 6px 0; color: var(--texto-suave); }
+.tarjeta-pedido ul { padding-left: 20px; }
+.tarjeta-pedido .boton { width: 100%; white-space: normal; }
